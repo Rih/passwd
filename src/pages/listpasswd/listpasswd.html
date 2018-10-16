@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Passwords list
+    </ion-title>
+    <ion-buttons end>
+    	<button ion-button small clear (click)="actionBtn();">
+    		{{btnName}}
+    	</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+	<ion-refresher>
+		<ion-refresher-content
+			pullingText="Pull to refresh"	
+			pullingIcon="arrow-dropdown"	
+			refreshingSpinner="circles"
+			refreshingText="..Fetching"
+		></ion-refresher-content>
+	</ion-refresher>
+	<ion-list no-lines>
+		<button clear ion-item  *ngFor="let item of items"
+		(click)="itemClicked(item)"
+		>
+			{{ item.id }} -- {{ item.title }}
+		</button>	
+	</ion-list>
+	
+</ion-list>
+</ion-content>
